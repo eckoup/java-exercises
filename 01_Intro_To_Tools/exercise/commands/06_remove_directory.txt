@@ -1,1 +1,5 @@
 # How do you remove a directory called "temp" in your current directory?
+rm -r temp
+
+
+
