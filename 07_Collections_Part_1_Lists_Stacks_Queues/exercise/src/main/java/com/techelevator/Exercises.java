@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Exercises {
+	private boolean stringList;
 
 	/*
 	 Note, for-each is preferred, and should be used when possible.
@@ -16,7 +17,11 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> array2List = new ArrayList<String>();
+		for (String fruit : stringArray) {
+			array2List.add(fruit);
+		}
+		return array2List;
 	}
 
 	/*
@@ -25,9 +30,15 @@ public class Exercises {
 	 list2Array( ["Red", "Orange", "Yellow"] )  ->  {"Red", "Orange", "Yellow"}
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
-	public String[] list2Array(List<String> stringList) {
-		return null;
-	}
+		public String[] list2Array(ArrayList<String> stringList) {
+			String[] arrayForList = new String[(stringList.size())];
+			for (int i = 0; i < stringList.size(); i++) {
+				arrayForList[i] = stringList.get(i);
+				System.out.println(arrayForList[i]);
+			}
+			return arrayForList;
+		}
+
 
 	/*
 	 Given an array of Strings, return an ArrayList containing the same Strings in the same order
@@ -37,7 +48,13 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> no4LetterWords = new ArrayList<String>();
+		for (String words : stringArray) {
+			if (words.length() != 4) {
+				no4LetterWords.add(words);
+			}
+		}
+		return no4LetterWords;
 	}
 
 	/*
@@ -47,7 +64,11 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		ArrayList<Double> doubles = new ArrayList<Double>();
+		for (int i = 0; i < intArray.length; ++i) {
+			doubles.add(intArray[i] / 2.0);
+		}
+		return doubles;
 	}
 
 	/*
@@ -57,7 +78,13 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		int largest = integerList.get(0);
+		for (int i = 1; i < integerList.size(); i++) {
+			if (largest < integerList.get(i)) {
+				largest = integerList.get(i);
+			}
+		}
+		return largest;
 	}
 
 	/*
@@ -67,7 +94,13 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> oddOnly = new ArrayList<Integer>();
+		for (int i = 0; i < integerArray.length; i++){
+			if (integerArray[i] % 2 != 0){
+				oddOnly.add(integerArray[i]);
+			}
+		}
+		return oddOnly;
 	}
 
 	/*
@@ -76,10 +109,22 @@ public class Exercises {
 	 foundIntTwice( [5, 7, 9, 5, 11], 5 ) -> true
 	 foundIntTwice( [6, 8, 10, 11, 13], 8 -> false
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
+
+	 public boolean foundIntTwice([5,7,9,5,11], 5)
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		int counter = 0;
+		for (int i = 0; i < integerList.size(); i++){
+			if (integerList.get(i) == intToFind){
+				counter++;
+			}
+		}
+		if (counter >= 2 ) {
+			return true;
+		}
 		return false;
 	}
+
 
 	/*
 	 Given an array of Integers, return a List that contains the same Integers (as Strings). Except any multiple of 3
@@ -94,7 +139,19 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> fizzyBois = new ArrayList<String>();
+		for (int i = 0; i < integerArray.length; ++i) {
+			if (integerArray[i] % 3 == 0 && integerArray[i] % 5 == 0) {
+				fizzyBois.add("FizzBuzz");
+			} else if (integerArray[i] % 5 == 0) {
+				fizzyBois.add("Buzz");
+			} else if (integerArray[i] % 3 == 0) {
+				fizzyBois.add("Fizz");
+			} else {
+				fizzyBois.add(integerArray[i].toString());
+			}
+		}
+		return fizzyBois;
 	}
 
 	/*
@@ -105,7 +162,24 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+		List<Integer> names = new ArrayList<Integer>();
+		int size = 0;
+		if (listOne.size()>listTwo.size()){
+			size = listOne.size();
+		}
+		else{
+			size = listTwo.size();
+		}
+		for (int i = 0; i < size; i++) {
+			if (i < listOne.size()) {
+				names.add(listOne.get(i));
+			}
+			if (i < listTwo.size()) {
+				names.add(listTwo.get(i));
+			}
+		}
+			return names;
+		}
 	}
 
-}
+
