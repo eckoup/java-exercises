@@ -11,8 +11,7 @@ public class Tutorial {
     public static void main(String[] args) {
 
     	// Step One: Declare a List
-
-    	
+        List<String> nameList = new ArrayList<String>();
     	// Step Two: Add values to a List
 
     	
