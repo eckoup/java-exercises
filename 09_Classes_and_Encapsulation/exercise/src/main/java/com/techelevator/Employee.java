@@ -13,41 +13,46 @@ public class Employee {
             this.employeeId = employeeId;
             this.firstName = firstName;
             this.lastName = lastName;
-            annualSalary = annualSalary;
+           this.annualSalary = annualSalary;
         }
         //raise salary method
         public void raiseSalary ( double percent) {
-            double raiseAmount = (annualSalary * percent) / 100;
-            double newAnnualSalary = annualSalary + raiseAmount;
+            double raiseAmount = (annualSalary * percent / 100);
+            annualSalary = this.annualSalary + raiseAmount;
             System.out.println(String.format("%.2f", annualSalary));
-
             System.out.println("Raised salary by" + percent + "%" + "Expected to go from" +
-                    String.format("%.2f", annualSalary) + "to" + String.format("%.2f", newAnnualSalary));
+                    String.format("%.2f", annualSalary) + "to" + String.format("%.2f", annualSalary));
         }
         //getters and setters
         public int getEmployeeId(){
-           return employeeId;
+
+        return employeeId;
         }
         public String getFirstName(){
-            return firstName;
+
+        return firstName;
         }
         public String getLastName(){
-            return lastName;
+
+        return lastName;
         }
         public String getFullName () {
             return this.lastName + "" + this.firstName;
         }
-        public void setLastName(){
+        public void setLastName(String lastName){
             this.lastName=lastName;
         }
         public String getDepartment(){
-            return department;
+
+        return department;
         }
-        public void setDepartment(){
-            this.department=department;
+        public void setDepartment(String department){
+
+        this.department=department;
         }
         public double getAnnualSalary(){
-            return annualSalary;
+
+        return annualSalary;
         }
 }
 
