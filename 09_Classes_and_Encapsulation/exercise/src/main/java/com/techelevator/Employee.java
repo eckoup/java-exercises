@@ -37,7 +37,7 @@ public class Employee {
         return lastName;
         }
         public String getFullName () {
-            return this.lastName + "" + this.firstName;
+            return this.lastName + ", " + this.firstName;
         }
         public void setLastName(String lastName){
             this.lastName=lastName;
