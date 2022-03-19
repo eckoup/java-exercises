@@ -25,6 +25,7 @@ public class HomeworkAssignment {
     }
     public HomeworkAssignment (int possibleMarks, String submitterName) {
         this.possibleMarks = possibleMarks;
+        this.submitterName = submitterName;
     }
     public int getEarnedMarks() {
         return earnedMarks;}
