@@ -9,7 +9,15 @@ public class SavingsAccount extends BankAccount {
     public SavingsAccount(String accountHolder, String accountNumber) {
         super(accountHolder, accountNumber);
     }
-
+public int transferTo(BankAccount destinationAccount, int transferAmount){
+        if ( getBalance()-transferAmount>=2){
+            super.transferTo(destinationAccount, transferAmount);
+            if (getBalance()<150){
+                super.withdraw(2);
+            }
+        }
+        return getBalance();
+}
     @Override
     public int withdraw(int amountToWithdraw) {
         // only perform transaction of positive $ and room for fee
@@ -23,3 +31,4 @@ public class SavingsAccount extends BankAccount {
         return getBalance();
     }
 }
+
