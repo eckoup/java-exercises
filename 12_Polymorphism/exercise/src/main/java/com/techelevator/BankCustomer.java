@@ -54,3 +54,4 @@ public class BankCustomer {
         return netWorth >= VipStatus;
     }
 }
+//
