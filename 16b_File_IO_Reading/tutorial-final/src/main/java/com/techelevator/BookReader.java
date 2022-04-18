@@ -2,12 +2,13 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class BookReader {
     static private final String BEGIN_MARKER = "*** START OF";
     static private final String END_MARKER = "*** END OF";
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         /*
          * This book-reader program opens a file that was downloaded from https://www.gutenberg.org/, reads
          * through the copyright information at the top until it finds the start of the book content, and
@@ -18,9 +19,15 @@ public class BookReader {
         /*
         Step 1: Prompt the user for a filename
          */
+        Scanner Scanscan = new Scanner(System.in);
+        System.out.print("Input filename:");
+        String filename = Scanscan.nextLine();
+        File inputFile = new File(filename);
         // Create a scanner for user input
         Scanner userInput = new Scanner(System.in);
+
         // Prompt the user for a file path - path should look like "data/jekyll-and-hyde.txt"
+        File bookFile = new File(filename);
         System.out.print("Enter path to the book file: ");
         String filePath = userInput.nextLine();
 
@@ -28,13 +35,15 @@ public class BookReader {
         Step 2: Step Two: Open the book file and handle errors
          */
         // Create a File object using the path
-        File bookFile = new File(filePath);
+        File bookFile2 = new File(filePath);
         // Setup some variables used in the loop
         boolean inBookText = false; // Are you reading between the start and end markers?
         int lineCount = 0;          // Count of lines between the start and end markers.
-
+        Scanner scanner = new Scanner(filePath);
         // Open the file
         try (Scanner fileInput = new Scanner(bookFile)) {
+
+
             /*
             Step 3: Create a read loop and process the lines
              */
@@ -73,3 +82,4 @@ public class BookReader {
         System.out.println("Found " + lineCount + " lines of text in " + filePath);
     }
 }
+
